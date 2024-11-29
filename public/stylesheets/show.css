@@ -1,0 +1,22 @@
+html, body {
+    height: 100%; 
+    margin: 0; /* Remove any default margin */
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg");
+    background-size: cover; /* Ensure the image covers the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Make the background image fixed during scroll */
+    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5); /* Darken the content area */
+    color: white; /* Text color */
+    height: 100%; /* Ensure the body takes up the full height */
+}
+
+.cont {
+    padding-bottom: 5em; /* Add some padding at the bottom */
+    min-height: 100vh; /* Ensure the content area takes at least the full viewport height */
+}

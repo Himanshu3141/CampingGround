@@ -1,0 +1,70 @@
+/* Basic Navbar Styling */
+.navbar {
+    border-bottom: 2px solid #444;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f1f1f1;
+}
+
+.navbar-toggler-icon {
+    background-color: #f1f1f1;
+}
+
+/* Navbar Link Styles */
+.nav-link {
+    color: #f1f1f1 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Active Link Styles */
+.nav-link.active {
+    color: #28a745 !important;
+    font-weight: 700;
+}
+
+/* Navbar Dropdown Menu */
+.navbar-nav .dropdown-menu {
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.navbar-nav .dropdown-item {
+    color: #f1f1f1;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #28a745;
+}
+
+/* Hover effect for links */
+.nav-link:hover {
+    color: #28a745 !important;
+    text-decoration: none;
+    border-bottom: 2px solid #28a745;
+}
+
+/* Mobile View (Navbar on small screens) */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .nav-item {
+        margin-bottom: 1rem;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+}
+
+/* Add shadow to navbar when scrolled */
+.navbar.sticky-top {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
