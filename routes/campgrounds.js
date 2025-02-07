@@ -8,7 +8,11 @@ const isLoggedIn = require('../middleware');
 const multer = require('multer');
 const { storage } = require('../cloudinary');
 const upload = multer({ storage });
+<<<<<<< HEAD
 const campgrounds = require('../controllers/campgrounds'); 
+=======
+const campgrounds = require('../controllers/campgrounds'); // Import the campgrounds controller
+>>>>>>> c802bb2d0048dae3e91b323ed2a53e59d527605a
 
 const validateCampground = (req, res, next) => {
   const campgroundSchema = joi.object({
@@ -39,24 +43,39 @@ const isAuthor = async(req, res, next) => {
   next();
 }
 
+<<<<<<< HEAD
 
 router.route('/')
   .get(catchAsync(campgrounds.index))
   .post(isLoggedIn, upload.single('image'), catchAsync(async (req, res) => {
+=======
+// Route for creating a campground with image upload
+router.route('/')
+  .get(catchAsync(campgrounds.index)) // Use the 'index' method from campgrounds controller
+  .post(isLoggedIn, upload.single('image'), catchAsync(async (req, res) => {
+    // Ensure user is logged in
+>>>>>>> c802bb2d0048dae3e91b323ed2a53e59d527605a
     if (!req.user) {
       req.flash('error', 'You must be logged in to create a campground.');
       return res.redirect('/login');
     }
 
     const { title, location, price, description } = req.body.campground;
+<<<<<<< HEAD
     const image = req.file.path;  
 
 
+=======
+    const image = req.file.path;  // Cloudinary image URL
+
+    // Create a new campground with the image URL and user ID
+>>>>>>> c802bb2d0048dae3e91b323ed2a53e59d527605a
     const newCampground = new Campground({
       title,
       location,
       price,
       description,
+<<<<<<< HEAD
       image,  
       author: req.user._id,  
     });
@@ -65,11 +84,25 @@ router.route('/')
     await newCampground.save();
     
 
+=======
+      image,  // Store the Cloudinary image URL
+      author: req.user._id,  // Use the logged-in user's ID
+    });
+
+    // Save the campground to the database
+    await newCampground.save();
+    
+    // Redirect to the newly created campground's page
+>>>>>>> c802bb2d0048dae3e91b323ed2a53e59d527605a
     res.redirect(`/campgrounds/${newCampground._id}`);
   }));
 
 router.get('/new', isLoggedIn, campgrounds.rendernewform);
 
+<<<<<<< HEAD
+=======
+// Route for editing an existing campground
+>>>>>>> c802bb2d0048dae3e91b323ed2a53e59d527605a
 router.route('/:id')
   .get(catchAsync(campgrounds.showCampground))
   .put(isLoggedIn, isAuthor, validateCampground, catchAsync(campgrounds.updateCampground))
