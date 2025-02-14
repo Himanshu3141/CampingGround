@@ -7,7 +7,6 @@ const path = require('path');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
 const methodOverride = require('method-override');
-const catchAsync = require('./utilities/catchAsync');
 const ExpressError = require('./utilities/ExpressError');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -98,6 +97,8 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render('error', { message });
 });
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   console.log("Serving on port 3000");
 });
