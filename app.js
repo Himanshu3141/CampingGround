@@ -1,7 +1,5 @@
-if(process.env.NODE_ENV!=="production"){
-  require('dotenv').config();
-}
-
+const dotenv = require("dotenv");
+dotenv.config();
 
 const express = require('express');
 const app = express();
@@ -30,11 +28,24 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname,'public')));
 
-main().catch(err => console.log(err));
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
-  console.log("DATABASE CONNECTED!!");
+  try {
+    const dbUrl = process.env.MONGODB_URL; 
+
+    if (!dbUrl) {
+      throw new Error("MongoDB URL is missing from .env file!");
+    }
+
+    await mongoose.connect(dbUrl);
+
+    console.log("DATABASE CONNECTED!!");
+  } catch (err) {
+    console.error("MongoDB Connection Error:", err);
+    process.exit(1);
+  }
 }
+
+main();
 
 const sessionConfig={
   secret:'thisshouldbeabettersecret!',

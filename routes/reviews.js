@@ -5,8 +5,8 @@ const ExpressError = require('../utilities/ExpressError');
 const joi = require('joi');
 const Campground = require('../models/campground');
 const Review = require('../models/review');
-const  isLoggedIn  = require('../middleware');
-const validatecampground=require('../middleware')
+const  isLoggedIn  = require('../middleware/middleware');
+const validatecampground=require('../middleware/middleware')
 const reviews=require('../controllers/reviews');
 
 router.post('/', isLoggedIn,validatecampground,catchAsync(reviews.createreview));

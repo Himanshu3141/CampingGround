@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build files
+dist/
+build/
+.vite/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+logs/
+*.log
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+
+# Cache & Temp files
+.cache/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Appwrite Config (If using local Appwrite instance)
+appwrite.json
+appwrite/
